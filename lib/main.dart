@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:duan1/current.dart'; // Import trang mới 'current.dart'
+import 'package:duan1/Profile_my.dart';
 
 void main() => runApp(const MyApp());
 
@@ -7,60 +9,53 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const String appTitle = 'Camping Excursion';
     return MaterialApp(
-      title: appTitle,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text(appTitle),
-        ),
-        body: const SingleChildScrollView(
-          child: Column(
-            children: [
-              ImageSection(
-                image: 'images/lake.jpg',
-              ),
-              TitleSection(
-                name: 'Oeschinen Lake Campground',
-                location: 'Kandersteg, Switzerland',
-              ),
-              ButtonSection(),
-              TextSection(
-                description:
-                    'Lake Oeschinen lies at the foot of the Blüemlisalp in the '
-                    'Bernese Alps. Situated 1,578 meters above sea level, it '
-                    'is one of the larger Alpine Lakes. A gondola ride from '
-                    'Kandersteg, followed by a half-hour walk through pastures '
-                    'and pine forest, leads you to the lake, which warms to 20 '
-                    'degrees Celsius in the summer. Activities enjoyed here '
-                    'include rowing, and riding the summer toboggan run.',
-              ),
-              // Add button at the bottom
-              NavigateButton(),
-            ],
-          ),
-        ),
-      ),
+      title: 'Camping Excursion',
+      home: const MainScreen(), // Đặt một màn hình chính bên trong MaterialApp
     );
   }
 }
 
-class NavigateButton extends StatelessWidget {
-  const NavigateButton({super.key});
+class MainScreen extends StatelessWidget {
+  const MainScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: ElevatedButton(
-        onPressed: () {
-          // Navigate to second screen when tapped
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const SecondScreen()),
-          );
-        },
-        child: const Text('Send Often'),
+    const String appTitle = 'Camping Excursion';
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(appTitle),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            GestureDetector(
+              onTap: () {
+                // Chuyển sang trang current.dart khi nhấn vào ảnh
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CurrentScreen()),
+                );
+              },
+              child: const ImageSection(image: 'images/lake.jpg'),
+            ),
+            const TitleSection(
+              name: 'Oeschinen Lake Campground',
+              location: 'Kandersteg, Switzerland',
+            ),
+            const ButtonSection(),
+            const TextSection(
+              description:
+                  'Lake Oeschinen lies at the foot of the Blüemlisalp in the '
+                  'Bernese Alps. Situated 1,578 meters above sea level, it '
+                  'is one of the larger Alpine Lakes. A gondola ride from '
+                  'Kandersteg, followed by a half-hour walk through pastures '
+                  'and pine forest, leads you to the lake, which warms to 20 '
+                  'degrees Celsius in the summer. Activities enjoyed here '
+                  'include rowing, and riding the summer toboggan run.',
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -129,11 +124,23 @@ class ButtonSection extends StatelessWidget {
             color: color,
             icon: Icons.call,
             label: 'CALL',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const CurrentScreen()),
+              );
+            },
           ),
           ButtonWithText(
             color: color,
             icon: Icons.near_me,
             label: 'ROUTE',
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileMyScreen()),
+              );
+            },
           ),
           ButtonWithText(
             color: color,
@@ -152,31 +159,36 @@ class ButtonWithText extends StatelessWidget {
     required this.color,
     required this.icon,
     required this.label,
+    this.onPressed, // Thêm tham số này
   });
 
   final Color color;
   final IconData icon;
   final String label;
+  final VoidCallback? onPressed; // Khai báo hàm onPressed
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(icon, color: color),
-        Padding(
-          padding: const EdgeInsets.only(top: 8),
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: color,
+    return GestureDetector( // Thêm GestureDetector để lắng nghe sự kiện nhấn
+      onTap: onPressed,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: color),
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Text(
+              label,
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
+                color: color,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
@@ -213,22 +225,6 @@ class ImageSection extends StatelessWidget {
       width: 600,
       height: 240,
       fit: BoxFit.cover,
-    );
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  const SecondScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Second Screen'),
-      ),
-      body: const Center(
-        child: Text('Welcome to the second screen!'),
-      ),
     );
   }
 }

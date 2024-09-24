@@ -1,8 +1,9 @@
 name: duan1
 description: "A new Flutter project."
 
-version: 1.0.0+1
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
+version: 1.0.0+1
 environment:
   sdk: ^3.5.0
 
@@ -10,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
@@ -22,4 +24,19 @@ flutter:
   uses-material-design: true
   assets:
     - images/lake.jpg
-    
+    - images/background.jpg
+    - images/L-Close-Black.jpg
+    - images/Danang.jpg
+    - images/Vector1.jpg
+    - images/Vector2.jpg
+    - images/Vector3.jpg
+    - images/nguoi.jpg
+    - images/Camera.jpg
+    - images/Mask1.jpg
+    - images/Mask2.jpg
+    - images/Mask3.jpg
+    - images/Mask4.jpg
+    - images/Mask5.jpg
+    - images/Mask6.jpg
+    - images/Mask7.jpg
+    - images/Mask8.jpg
