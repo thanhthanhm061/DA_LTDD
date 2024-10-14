@@ -1,5 +1,6 @@
+import 'package:duan1/notifications.dart';
 import 'package:flutter/material.dart';
-import 'package:duan1/current.dart'; // Import trang mới 'current.dart'
+import 'package:duan1/current.dart'; 
 import 'package:duan1/Profile_my.dart';
 
 void main() => runApp(const MyApp());
@@ -9,9 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Camping Excursion',
-      home: const MainScreen(), // Đặt một màn hình chính bên trong MaterialApp
+      home: MainScreen(), 
     );
   }
 }
@@ -138,7 +139,7 @@ class ButtonSection extends StatelessWidget {
             onPressed: (){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ProfileMyScreen()),
+                MaterialPageRoute(builder: (context) => const ProfileMyScreen()),
               );
             },
           ),
@@ -146,6 +147,12 @@ class ButtonSection extends StatelessWidget {
             color: color,
             icon: Icons.share,
             label: 'SHARE',
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const NotificationsScreen()),
+              );
+            },
           ),
         ],
       ),

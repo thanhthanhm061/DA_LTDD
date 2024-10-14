@@ -40,3 +40,30 @@ flutter:
     - images/Mask6.jpg
     - images/Mask7.jpg
     - images/Mask8.jpg
+    #notification.dart
+    - images/Caurong.jpg
+    - images/Groupng3.jpg
+    - images/Maskng1.jpg
+    - images/Maskng2.jpg
+    #profile_setting
+    - images/On.jpg
+    - images/TuanTran.jpg
+    #experiences
+    - images/More1.jpg
+    - images/More2.jpg
+    - images/More3.jpg
+    - images/MMore1.jpg
+    - images/MMore2.jpg
+    #SD
+    - images/SD.jpg
+    #JooJin
+    - images/YooJin.jpg
+    - images/jooJin1.jpg
+    - images/jooJin2.jpg
+    - images/jooJin3.jpg
+    #Next
+    - images/MH11.jpg
+    - images/MH1.jpg
+    - images/MH2.jpg
+
+

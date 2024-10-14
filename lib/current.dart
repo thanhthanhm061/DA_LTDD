@@ -8,25 +8,12 @@ class CurrentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
+        title: const Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GestureDetector(
-              onTap: () {
-                // Xử lý khi nhấn vào dấu "X"
-                print('Close tapped!'); 
-                // Không làm gì thêm ở đây
-              },
-              child: const Text(
-                'X', // Dấu "X" lớn
-                style: TextStyle(
-                  fontSize: 25, // Kích thước chữ
-                  color: Colors.black, // Màu sắc chữ
-                ),
-              ),
-            ),
-            const SizedBox(width: 100), // Khoảng cách giữa dấu "X" và tiêu đề
-            const Text('Add Photo'), // Tiêu đề
+            
+            SizedBox(width: 100), // Khoảng cách giữa dấu "X" và tiêu đề
+            Text('Add Photo'), // Tiêu đề
           ],
         ),
         actions: [
@@ -49,7 +36,7 @@ class CurrentScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: GridListDemo(type: GridListDemoType.footer),
       ),
     );
@@ -121,7 +108,7 @@ class GridListDemo extends StatelessWidget {
 
 
               // Thêm dòng chữ "Take Photo" màu xanh ở dưới cùng
-              Positioned(
+              const Positioned(
                 bottom: 70, // Vị trí chữ phía dưới
                 left: 0,
                 right: 0,
@@ -129,7 +116,7 @@ class GridListDemo extends StatelessWidget {
                   'Take Photo',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-              color: const Color(0xFF00CEA6), // Mã màu #00CEA6
+              color: Color(0xFF00CEA6), // Mã màu #00CEA6
 
                     fontWeight: FontWeight.bold,
                   ),
