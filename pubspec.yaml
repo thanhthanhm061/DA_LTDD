@@ -65,5 +65,10 @@ flutter:
     - images/MH11.jpg
     - images/MH1.jpg
     - images/MH2.jpg
-
+    #Blog_Detail
+    - images/Blog1.jpg
+    - images/Blog2.jpg
+    - images/Blog3.jpg
+    - images/Blog4.jpg
+    - images/Blog5.jpg
 

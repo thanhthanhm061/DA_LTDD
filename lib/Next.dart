@@ -1,6 +1,6 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
-
+import 'package:duan1/Blog_Detail.dart';
 class Next extends StatelessWidget {
   const Next({super.key});
 
@@ -15,8 +15,11 @@ class Next extends StatelessWidget {
         child: Column(
         children: [
           GestureDetector(
-            onTap: () {
-            
+            onTap: () {  
+              Navigator.push(
+                context,
+                 MaterialPageRoute(builder:(context)=>const Blogdetail())
+                 );
             },
             child: Stack(
               children: [
@@ -103,6 +106,7 @@ class Next extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                
                 children: [
                   // Ho Gươm
                   Padding(
@@ -130,7 +134,9 @@ class Next extends StatelessWidget {
                               'Ho Gươm', 
                               style: TextStyle(fontSize: 18),
                               overflow: TextOverflow.ellipsis,
+                              
                             ),
+                            
                           ),
                         ],
                       ),
